@@ -1,0 +1,15 @@
+{
+  "name": "matheuswylliamportfolio",
+  "version": "1.0.0",
+  "description": "Portfólio de Matheus Wylliam",
+  "scripts": {
+    "tw:build": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css",
+    "tw:watch": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css --watch"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
+  }
+}
