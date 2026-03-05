@@ -1,0 +1,7 @@
+wwwroot/css/site.css linguist-generated=true
+package-lock.json linguist-vendored=true
+tailwind.config.js linguist-vendored=true
+postcss.config.js linguist-vendored=true
+wwwroot/css/input.css linguist-vendored=true
+Views/**/*.cshtml linguist-documentation=true
+wwwroot/**/*.html linguist-documentation=true
