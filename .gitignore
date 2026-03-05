@@ -4,3 +4,4 @@ obj/
 .DS_Store
 node_modules/
 wwwroot/css/tailwind.css
+.idea/

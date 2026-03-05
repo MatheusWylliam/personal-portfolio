@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./Views/**/*.cshtml",
@@ -6,13 +5,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+      screens: {
+        sm: "640px",
+        msm: "600px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
       },
-      colors: {
-        background: '#0a0a0a',
-      }
     },
   },
   plugins: [],
-}
+};
