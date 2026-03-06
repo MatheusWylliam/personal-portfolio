@@ -34,7 +34,7 @@ public class HomeController : Controller
             },
             new ExperienceModel
             {
-                Company = "IFRN",
+                Company = "IFRN - Instituto Federal",
                 Role = isPt ? "Estagiário TI — Ênfase em Eletrônica" : "IT Intern — Electronics Focus",
                 Period = "JAN 2021 - JAN 2022",
                 Bullets = isPt

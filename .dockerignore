@@ -1,0 +1,15 @@
+bin/
+obj/
+node_modules/
+.vs/
+.idea/
+*.user
+.git/
+.gitignore
+.gitattributes
+Dockerfile
+docker-compose.yml
+.dockerignore
+wwwroot/css/site.css
+.DS_Store
+README.md
