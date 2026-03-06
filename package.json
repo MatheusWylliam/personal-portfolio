@@ -1,7 +1,7 @@
 {
   "name": "matheuswylliamportfolio",
   "version": "1.0.0",
-  "description": "Portfólio de Matheus Wylliam",
+  "description": "Portfólio Matheus Wylliam",
   "scripts": {
     "tw:build": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css",
     "tw:watch": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/site.css --watch"

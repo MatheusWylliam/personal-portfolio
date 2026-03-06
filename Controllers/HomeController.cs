@@ -54,14 +54,37 @@ public class HomeController : Controller
                         "Performed maintenance and diagnostics of electronic equipment and laboratory infrastructure.",
                         "Documented technical projects and operational procedures for the institute's IT department."
                     }
+            },
+            new ExperienceModel
+            {
+                Company = "AFS - Intercultural Programs",
+                Role = isPt ? "Intérprete de Inglês" : "Volunteer English Interpreter",
+                Period = "FEV 2019 - DEZ 2022",
+                Bullets = isPt
+                    ? new List<string>
+                    {
+                        "Atuei como intérprete voluntário de inglês, facilitando a comunicação entre intercambistas de diferentes países e a comunidade local em eventos, reuniões e atividades culturais.",
+                        "Realizei apresentações técnicas na área de Eletrônica para grupos internacionais, traduzindo conceitos complexos de forma clara e acessível para públicos de diferentes idiomas e culturas.",
+                        "Auxiliei intercambistas no processo de adaptação cultural, oferecendo suporte linguístico e orientação em situações cotidianas, acadêmicas e institucionais.",
+                        "Desenvolvi habilidades sólidas de comunicação intercultural, oratória e liderança ao mediar experiências entre jovens de múltiplas nacionalidades.",
+                        "Colaborei na organização de eventos e atividades do programa, contribuindo para a integração e o enriquecimento cultural dos participantes."
+                    }
+                    : new List<string>
+                    {
+                        "Served as a volunteer English interpreter, facilitating communication between exchange students from different countries and the local community at events, meetings, and cultural activities.",
+                        "Delivered technical presentations in the field of Electronics to international groups, translating complex concepts clearly and accessibly for audiences of different languages and backgrounds.",
+                        "Supported exchange students through cultural adaptation, providing linguistic assistance and guidance in everyday, academic, and institutional situations.",
+                        "Developed strong intercultural communication, public speaking, and leadership skills by mediating experiences among young people from multiple nationalities.",
+                        "Collaborated in the organization of program events and activities, contributing to the integration and cultural enrichment of participants."
+                    }
             }
         };
 
         var aboutPt =
-            "Software Developer (PUC), Data Scientist (UFRN) e Técnico em Eletrônica (IFRN) com foco em .NET (C#, VB), desenvolvimento ASP.NET, machine learning e data engineering. Expertise em arquitetura de software com CQRS e MVC, pipelines de dados, APIs RESTful, modelos de machine learning com ênfase em MLOps e arquitetura de dados. Graduando em Análise e Desenvolvimento de Sistemas (PUC) e Ciência de Dados (UFRN).";
+            "Software Developer (PUC), Data Scientist (UFRN) e Técnico em Eletrônica (IFRN) com foco em .NET (C#, VB), desenvolvimento ASP.NET Core, machine learning e data engineering. Expertise em arquitetura de software com CQRS e MVC, pipelines de dados, APIs RESTful, modelos de machine learning com ênfase em MLOps e arquitetura de dados. Graduando em Análise e Desenvolvimento de Sistemas (PUC) e Ciência de Dados (UFRN).<br><br>Português Nativo | Inglês Avançado (C1).";
 
         var aboutEn =
-            "Software Developer (PUC), Data Scientist (UFRN) and Electronics Technician (IFRN) focused on .NET (C#, VB), ASP.NET development, machine learning and data engineering. Expertise in software architecture with CQRS and MVC, data pipelines, RESTful APIs, machine learning models with emphasis on MLOps, and data architecture. Undergraduate student in Systems Analysis and Development (PUC) and Data Science (UFRN).";
+            "Software Developer (PUC), Data Scientist (UFRN) and Electronics Technician (IFRN) focused on .NET (C#, VB), ASP.NET Core development, machine learning and data engineering. Expertise in software architecture with CQRS and MVC, data pipelines, RESTful APIs, machine learning models with emphasis on MLOps, and data architecture. Undergraduate student in Systems Analysis and Development (PUC) and Data Science (UFRN).<br><br>Native Portuguese | Advanced English (C1).";
 
         var labels = isPt
             ? new UiLabels
