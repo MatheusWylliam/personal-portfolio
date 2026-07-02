@@ -1,4 +1,4 @@
-﻿const name = "Matheus W. :)";
+﻿const name = "Matheus W. :/";
 const el = document.getElementById("typewriter");
 let i = 0;
 

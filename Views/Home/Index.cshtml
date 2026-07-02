@@ -1,4 +1,21 @@
 ﻿@model MatheusWylliamPortfolio.Models.HomeViewModel
+@{
+    var stackItems = new (string Icon, string Label)[]
+    {
+        ("R-Dark.svg", "R"),
+        ("Python-Dark.svg", "Python"),
+        ("TensorFlow-Dark.svg", "TensorFlow"),
+        ("ScikitLearn-Dark.svg", "Scikit-Learn"),
+        ("PyTorch-Dark.svg", "PyTorch"),
+        ("CS.svg", "C#"),
+        ("DotNet.svg", ".NET"),
+        ("CPP.svg", "C++"),
+        ("Arduino.svg", "Arduino"),
+        ("Terraform-Dark.svg", "Terraform"),
+        ("Docker.svg", "Docker"),
+        ("PostgreSQL-Dark.svg", "PostgreSQL"),
+    };
+}
 
 <nav class="navbar" id="navbar">
     <div class="navbar-inner">
@@ -56,7 +73,7 @@
         LinkedIn
       </span>
 
-      <a href="mailto:hazelramahz@icloud.com" class="social-btn">
+      <a href="mailto:matheus.wylliam@icloud.com" class="social-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect width="20" height="16" x="2" y="4" rx="2"/>
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -96,29 +113,13 @@
     <p class="section-title">@Model.Labels.SectionStack</p>
     <div class="marquee-wrapper" id="marquee-wrapper">
       <div class="marquee-track" id="marquee-track">
-        <div class="stack-item"><img src="/icons/R-Dark.svg" alt="R" class="stack-icon" /><span class="stack-label">R</span></div>
-        <div class="stack-item"><img src="/icons/Python-Dark.svg" alt="Python" class="stack-icon" /><span class="stack-label">Python</span></div>
-        <div class="stack-item"><img src="/icons/TensorFlow-Dark.svg" alt="TensorFlow" class="stack-icon" /><span class="stack-label">TensorFlow</span></div>
-        <div class="stack-item"><img src="/icons/ScikitLearn-Dark.svg" alt="Scikit-Learn" class="stack-icon" /><span class="stack-label">Scikit-Learn</span></div>
-        <div class="stack-item"><img src="/icons/PyTorch-Dark.svg" alt="PyTorch" class="stack-icon" /><span class="stack-label">PyTorch</span></div>
-        <div class="stack-item"><img src="/icons/CS.svg" alt="C#" class="stack-icon" /><span class="stack-label">C#</span></div>
-        <div class="stack-item"><img src="/icons/DotNet.svg" alt=".NET" class="stack-icon" /><span class="stack-label">.NET</span></div>
-        <div class="stack-item"><img src="/icons/CPP.svg" alt="C++" class="stack-icon" /><span class="stack-label">C++</span></div>
-        <div class="stack-item"><img src="/icons/Arduino.svg" alt="Arduino" class="stack-icon" /><span class="stack-label">Arduino</span></div>
-        <div class="stack-item"><img src="/icons/Terraform-Dark.svg" alt="Terraform" class="stack-icon" /><span class="stack-label">Terraform</span></div>
-        <div class="stack-item"><img src="/icons/Docker.svg" alt="Docker" class="stack-icon" /><span class="stack-label">Docker</span></div>
-        <div class="stack-item"><img src="/icons/PostgreSQL-Dark.svg" alt="PostgreSQL" class="stack-icon" /><span class="stack-label">PostgreSQL</span></div>
-        <div class="stack-item"><img src="/icons/R-Dark.svg" alt="R" class="stack-icon" /><span class="stack-label">R</span></div>
-        <div class="stack-item"><img src="/icons/Python-Dark.svg" alt="Python" class="stack-icon" /><span class="stack-label">Python</span></div>
-        <div class="stack-item"><img src="/icons/ScikitLearn-Dark.svg" alt="Scikit-Learn" class="stack-icon" /><span class="stack-label">Scikit-Learn</span></div>
-        <div class="stack-item"><img src="/icons/PyTorch-Dark.svg" alt="PyTorch" class="stack-icon" /><span class="stack-label">PyTorch</span></div>
-        <div class="stack-item"><img src="/icons/CS.svg" alt="C#" class="stack-icon" /><span class="stack-label">C#</span></div>
-        <div class="stack-item"><img src="/icons/DotNet.svg" alt=".NET" class="stack-icon" /><span class="stack-label">.NET</span></div>
-        <div class="stack-item"><img src="/icons/CPP.svg" alt="C++" class="stack-icon" /><span class="stack-label">C++</span></div>
-        <div class="stack-item"><img src="/icons/Arduino.svg" alt="Arduino" class="stack-icon" /><span class="stack-label">Arduino</span></div>
-        <div class="stack-item"><img src="/icons/Terraform-Dark.svg" alt="Terraform" class="stack-icon" /><span class="stack-label">Terraform</span></div>
-        <div class="stack-item"><img src="/icons/Docker.svg" alt="Docker" class="stack-icon" /><span class="stack-label">Docker</span></div>
-        <div class="stack-item"><img src="/icons/PostgreSQL-Dark.svg" alt="PostgreSQL" class="stack-icon" /><span class="stack-label">PostgreSQL</span></div>
+        @for (int copy = 0; copy < 2; copy++)
+        {
+          foreach (var item in stackItems)
+          {
+            <div class="stack-item"><img src="/icons/@item.Icon" alt="@item.Label" class="stack-icon" /><span class="stack-label">@item.Label</span></div>
+          }
+        }
       </div>
     </div>
   </section>
@@ -137,23 +138,67 @@
       <div style="flex:1;padding:0.5rem 0 0.5rem 2rem;">
         @for (int i = 0; i < Model.Experiences.Count; i++)
         {
+          var exp = Model.Experiences[i];
           <div id="exp-panel-@i" style="display:none;" class="exp-panel-inner">
-            <h2 style="font-size:1rem;font-weight:600;margin-bottom:0.25rem;" class="exp-role-text">
-              @Model.Experiences[i].Role
-              <span class="exp-company-text">@("@") @Model.Experiences[i].Company</span>
-            </h2>
-            <div class="exp-period-text" style="font-size:0.72rem;letter-spacing:0.08em;margin-bottom:1.25rem;text-transform:uppercase;">
-              @Model.Experiences[i].Period
-            </div>
-            <ul style="display:flex;flex-direction:column;gap:0.85rem;list-style:none;padding:0;margin:0;">
-              @foreach (var bullet in Model.Experiences[i].Bullets)
-              {
-                <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.82rem;line-height:1.8;" class="exp-bullet-text">
-                  <span class="exp-period-text" style="flex-shrink:0;margin-top:0.15rem;">▸</span>
-                  <span>@bullet</span>
-                </li>
-              }
-            </ul>
+
+            @if (exp.Roles.Count > 1)
+            {
+              <div class="exp-timeline">
+                @for (int r = exp.Roles.Count - 1; r >= 0; r--)
+                {
+                  var role = exp.Roles[r];
+                  var isCurrent = r == exp.Roles.Count - 1;
+                  <div class="exp-timeline-item @(isCurrent ? "exp-timeline-current" : "")">
+                    <div class="exp-timeline-marker">
+                      <span class="exp-timeline-dot"></span>
+                      @if (r > 0) { <span class="exp-timeline-line"></span> }
+                    </div>
+                    <div class="exp-timeline-content">
+                      <h2 style="font-size:1rem;font-weight:600;margin-bottom:0.25rem;" class="exp-role-text">
+                        @role.Role
+                        <span class="exp-company-text">@("@") @exp.Company</span>
+                        @if (isCurrent)
+                        {
+                          <span class="exp-current-badge">@(Model.Lang == "pt" ? "Cargo atual" : "Current role")</span>
+                        }
+                      </h2>
+                      <div class="exp-period-text" style="font-size:0.72rem;letter-spacing:0.08em;margin-bottom:1.25rem;text-transform:uppercase;">
+                        @role.Period
+                      </div>
+                      <ul style="display:flex;flex-direction:column;gap:0.85rem;list-style:none;padding:0;margin:0;">
+                        @foreach (var bullet in role.Bullets)
+                        {
+                          <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.82rem;line-height:1.8;" class="exp-bullet-text">
+                            <span class="exp-period-text" style="flex-shrink:0;margin-top:0.15rem;">▸</span>
+                            <span>@bullet</span>
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+            else
+            {
+              var role = exp.Roles[0];
+              <h2 style="font-size:1rem;font-weight:600;margin-bottom:0.25rem;" class="exp-role-text">
+                @role.Role
+                <span class="exp-company-text">@("@") @exp.Company</span>
+              </h2>
+              <div class="exp-period-text" style="font-size:0.72rem;letter-spacing:0.08em;margin-bottom:1.25rem;text-transform:uppercase;">
+                @role.Period
+              </div>
+              <ul style="display:flex;flex-direction:column;gap:0.85rem;list-style:none;padding:0;margin:0;">
+                @foreach (var bullet in role.Bullets)
+                {
+                  <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.82rem;line-height:1.8;" class="exp-bullet-text">
+                    <span class="exp-period-text" style="flex-shrink:0;margin-top:0.15rem;">▸</span>
+                    <span>@bullet</span>
+                  </li>
+                }
+              </ul>
+            }
           </div>
         }
       </div>
