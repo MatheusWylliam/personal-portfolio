@@ -301,21 +301,32 @@ body.light-mode .social-btn:hover {
 }
 
 .avatar-ring {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 116px;
+    height: 116px;
+    box-sizing: border-box;
+    overflow: hidden;
     border-radius: 50%;
     padding: 2px;
     background: linear-gradient(135deg, #2a2a2a, #444444);
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 0 14px rgba(0,0,0,0.4);
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.light-mode .avatar-ring {
     background: linear-gradient(135deg, #cccccc, #aaaaaa);
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 0 10px rgba(0,0,0,0.12);
 }
 
 .avatar-ring img {
+    width: 112px;
+    height: 112px;
     border-radius: 50%;
     display: block;
+    flex-shrink: 0;
 }
 
 .exp-panel-inner {
@@ -337,6 +348,71 @@ body.light-mode .avatar-ring {
 
 .exp-bullet-text {
     color: var(--text-secondary);
+}
+
+.exp-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.exp-timeline-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.exp-timeline-item:not(:last-child) {
+    padding-bottom: 1.75rem;
+}
+
+.exp-timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 12px;
+    padding-top: 0.3rem;
+}
+
+.exp-timeline-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    border: 2px solid var(--bg-base);
+    box-shadow: 0 0 0 1px var(--border);
+    flex-shrink: 0;
+}
+
+.exp-timeline-current .exp-timeline-dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+.exp-timeline-line {
+    width: 1px;
+    flex: 1;
+    margin-top: 0.35rem;
+    background: var(--border);
+}
+
+.exp-timeline-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.exp-current-badge {
+    display: inline-block;
+    margin-left: 0.6rem;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    vertical-align: middle;
 }
 
 .coming-soon-box {
@@ -408,7 +484,6 @@ body.light-mode .hello-text {
 
 .marquee-track {
     display: flex;
-    gap: 2.5rem;
     width: max-content;
     animation: marquee 28s linear infinite;
 }
@@ -424,6 +499,7 @@ body.light-mode .hello-text {
     gap: 0.5rem;
     flex-shrink: 0;
     cursor: default;
+    margin-right: 2.5rem;
 }
 
 .stack-icon {
@@ -448,4 +524,131 @@ body.light-mode .hello-text {
 
 .stack-item:hover .stack-label {
     color: var(--text-secondary);
+}
+
+@media (max-width: 639px) {
+
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .navbar-inner {
+        justify-content: flex-start;
+        gap: 1.1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex: none;
+        width: 100%;
+    }
+
+    .navbar-inner::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navbar-link {
+        flex-shrink: 0;
+        padding: 0.35rem 0.1rem;
+    }
+
+    .navbar-controls {
+        position: static;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .font-mono.tracking-wide {
+        padding-left: 1.15rem !important;
+        padding-right: 1.15rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    #inicio {
+        padding-top: 6.75rem !important;
+        min-height: auto !important;
+        padding-bottom: 2.5rem;
+    }
+
+    #nome-h1 {
+        font-size: 1.6rem;
+    }
+
+    #sobre,
+    #stack,
+    #experiencia,
+    #projetos {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .about-body {
+        font-size: 0.95rem !important;
+        line-height: 1.85 !important;
+    }
+
+    .social-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    .stack-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .stack-label {
+        font-size: 0.76rem;
+    }
+
+    #experiencia > div {
+        flex-direction: column !important;
+    }
+
+    #experiencia > div > ul {
+        flex-direction: row !important;
+        min-width: 0 !important;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0.25rem;
+        padding: 0.25rem 0 0.75rem !important;
+    }
+
+    #experiencia > div > ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .exp-btn {
+        flex-shrink: 0;
+    }
+
+    #experiencia > div > div {
+        padding: 1.25rem 0 0.5rem 0 !important;
+    }
+
+    .exp-panel-inner {
+        padding-left: 1rem;
+    }
+
+    .exp-timeline-marker {
+        width: 10px;
+    }
+
+    .exp-bullet-text {
+        font-size: 0.85rem !important;
+    }
+
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+        width: 2.25rem;
+    }
 }
